@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Job } from '@/types/job';
 import { getJobs } from '@/server/api/jobs.get';
 
 const { jobs, loading, error, fetchJobs } = getJobs();

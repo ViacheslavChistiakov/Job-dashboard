@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white w-full flex justify-between rounded-lg shadow-md p-6 mb-4 cursor-pointer hover:shadow-lg md:flex-row xs:w-1/2 flex-col">
+    <div class="dark:bg-gray-800 shadow-md  w-full flex justify-between rounded-lg shadow-md p-6 mb-4 cursor-pointer hover:shadow-lg md:flex-row xs:w-1/2 flex-col">
         <h1 class="font-[Inter] font-mono text-xl font-bold mb-2">{{ job.title }}</h1>
         <p class="font-[Inter] font-sans text-gray-600 mb-4">{{ job.company }}</p>
         <p class="font-[Inter] font-sans text-gray-600 mb-4">{{ job.location }}</p>
