@@ -21,5 +21,10 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+  runtimeConfig: {
+    public: {
+      mockApiPort: import.meta.env.NUXT_PUBLIC_MOCKAPI_PORT,
+    }
   }
 });

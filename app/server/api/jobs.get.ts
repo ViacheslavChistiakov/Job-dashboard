@@ -1,7 +1,10 @@
 import axios from 'axios';
 import type { Job } from '~/types/job';
 
+
 export const getJobs = () => {
+  const config = useRuntimeConfig();
+  const apiUrl = config.public.mockApiPort;
   const page = ref<number>(1);
   const pageSize = ref<number>(5);
   const hasMore = ref<boolean>(true);
@@ -14,7 +17,7 @@ export const getJobs = () => {
     error.value = null;
     try {
       const { data } = await axios.get<Job[]>(
-        `https://6a20792be96c1d13b5877d0e.mockapi.io/api/v1/jobs?page=${page.value}&limit=${pageSize.value}`,
+        `${apiUrl}/jobs?page=${page.value}&limit=${pageSize.value}`,
       );
       const jobsData = data || [];
       if (jobsData.length < pageSize.value) {
