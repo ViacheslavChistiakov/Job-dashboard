@@ -6,4 +6,8 @@ export interface Job {
     type: string;
     level: string;
     salary: number;
+    description: string;
+    responsibilities: string[];
+    requirements: string[];
+    benefits: string[];
 }

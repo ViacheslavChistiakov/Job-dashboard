@@ -16,6 +16,7 @@ export const getJobs = () => {
   const config = useRuntimeConfig();
   const apiUrl = config.public.mockApiPort;
 
+  // Filter jobs based on their titles
   const filteredJobs = computed(() => {
     const query = searchQuery.value.toLowerCase();
     if (!query) return jobs.value;
@@ -38,12 +39,14 @@ export const getJobs = () => {
       }
     }
     try {
+      //Choose between search and pagination endpoint
       const isSearching = searchQuery.value.trim() !== '';
       const url = isSearching
         ? `${apiUrl}/jobs`
         : `${apiUrl}/jobs?page=${page.value}&limit=${pageSize.value}`;
       const { data } = await axios.get<Job[]>(url);
       const jobsData = data || [];
+      // If searching, replace the jobs list. If paginating, append to it.
       if (isSearching) {
         jobs.value = jobsData;
         hasMore.value = false;
@@ -73,6 +76,7 @@ export const getJobs = () => {
     jobs.value = [];
   };
 
+  // Submit handler
   const handleSearchingSubmit = () => {
     if (!searchQuery.value.trim()) {
       resetPagination();
