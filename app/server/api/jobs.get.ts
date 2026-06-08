@@ -69,7 +69,7 @@ export const getJobs = () => {
       loading.value = false;
     }
   };
-
+  
   const resetPagination = () => {
     page.value = 1;
     hasMore.value = true;

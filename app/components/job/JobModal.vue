@@ -36,8 +36,9 @@
         </ul>
         <button
           class="font-[Inter] font-medium w-full mt-6 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          @click="navigateTo(`/jobs/${job?.id}/apply`)"
         >
-          Apply now
+            Apply now
         </button>
       </div>
     </div>
@@ -63,5 +64,9 @@ const emit = defineEmits<{
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeyDown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyDown);
 });
 </script>
