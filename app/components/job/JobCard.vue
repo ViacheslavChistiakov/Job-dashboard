@@ -26,6 +26,7 @@ const closeModal = () => {
   isModalOpen.value = false;
 };
 
+
 // Prevent background scrolling when modal is open
 watch(isModalOpen, (value) => {
   document.body.style.overflow = value ? "hidden" : "auto"
